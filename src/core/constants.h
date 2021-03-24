@@ -77,6 +77,7 @@ constexpr char kModelConfigPbTxt[] = "config.pbtxt";
 
 constexpr char kMetricsLabelModelName[] = "model";
 constexpr char kMetricsLabelModelVersion[] = "version";
+constexpr char kMetricsLabelId[] = "id";
 constexpr char kMetricsLabelGpuUuid[] = "gpu_uuid";
 
 constexpr char kWarmupDataFolder[] = "warmup";

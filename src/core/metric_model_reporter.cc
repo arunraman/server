@@ -30,6 +30,7 @@
 
 #include "src/core/constants.h"
 #include "src/core/metrics.h"
+#include <atomic>
 
 namespace nvidia { namespace inferenceserver {
 
@@ -87,6 +88,9 @@ MetricModelReporter::GetMetricLabels(
       std::string(kMetricsLabelModelName), model_name));
   labels->insert(std::map<std::string, std::string>::value_type(
       std::string(kMetricsLabelModelVersion), std::to_string(model_version)));
+  static std::atomic<size_t> id(0);
+  labels->insert(std::map<std::string, std::string>::value_type(
+      std::string(kMetricsLabelId), std::to_string(++id)));
   for (const auto& tag : model_tags) {
     labels->insert(std::map<std::string, std::string>::value_type(
         "_" + tag.first, tag.second));
